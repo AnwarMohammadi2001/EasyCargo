@@ -1,0 +1,51 @@
+@font-face {
+  font-family: Poppins ;
+  src: url('../src/assets/font/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: Satisfy ;
+  src: url('../src/assets/font/Satisfy-Regular.ttf');
+}
+@font-face {
+  font-family: Roboto ;
+  src: url('../src/assets/font/Roboto-Regular.ttf');
+}
+@import "tailwindcss";
+
+@theme {
+  --font-Poppins: Poppins, "sans-serif";
+  --font-Roboto:Roboto, "sans-serif";
+  --font-Satisfy:Satisfy, "sans-serif";
+  --breakpoint-3xl: 120rem;
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  /* ... */
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+body {
+  margin: 0;
+  background-color: oklch(0.987 0.022 95.277);
+  /* font-family: Roboto; */
+  font-size: 12px;
+  scroll-behavior: smooth;
+}
+
+/* 
+
+
+
+.clip-diagonal-left {
+  clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+}
+
+.clip-diagonal-right {
+  clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+}
