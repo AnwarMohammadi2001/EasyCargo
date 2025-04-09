@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon, FaGlobe, FaRegUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "../redux/darkModeSlice";
-import { toggleLanguage } from "../redux/languageSlice";
+import { toggleDarkMode } from "../../redux/darkModeSlice";
+import { toggleLanguage } from "../../redux/languageSlice";
 
 const navItems = [
   { id: 1, name: "Home", path: "#" },
@@ -20,33 +20,10 @@ const Navbar = () => {
   const language = useSelector((state) => state.language.language);
   const iconClass = darkMode ? "text-yellow-400" : "text-gray-600";
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <nav
-      className={`fixed top-0 w-full left-0 right-0 z-60 transition-all duration-300 ${
-        scrolled
-         
-        
-      }`}
-    >
-      <div className="px-4 flex items-center justify-between py-3">
-        {/* Logo and Brand Name */}
-        <div className="flex items-center space-x-5">
-          <div className="text-2xl font-bold">✈️</div>
-          <span className="text-3xl font-semibold font-Roboto dark:text-amber-500 transition-colors duration-500">
-            Safar Nama
-          </span>
-        </div>
-
+    <nav className={` w-full  z-60 transition-all duration-300`}>
+      <div className="px-4 flex items-center justify-between py-2">
+       
         {/* Navigation Links */}
         <ul className="hidden md:flex space-x-10 px-32 py-3 font-medium">
           {navItems.map((item) => (

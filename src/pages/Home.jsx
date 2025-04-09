@@ -1,16 +1,17 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
+import Header from "../components/Navbar/Header";
 
 const Home = () => {
   return (
     <div>
-      <header className="fixed w-full z-60  transition-colors duration-500 ">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+      <header className=" w-full transition-colors duration-500 ">
+        <div className="">
+          <Header />
           <Navbar />
         </div>
       </header>
-      <main className="">
-      </main>
+      <main className=""></main>
     </div>
   );
 };
