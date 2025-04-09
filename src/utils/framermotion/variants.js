@@ -39,3 +39,25 @@ export const contentItem = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
+
+export const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.6, // موج آرام‌تر بین کارت‌ها
+      delayChildren: 0.2, // تأخیر اولیه قبل از شروع اولین کارت
+    },
+  },
+};
+
+export const cardVariants = {
+  hidden: { opacity: 0, y: 50 }, // از پایین‌تر بیاد
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5, // حرکت آرام‌تر
+      ease: "easeInOut", // نرم و طبیعی
+    },
+  },
+};
