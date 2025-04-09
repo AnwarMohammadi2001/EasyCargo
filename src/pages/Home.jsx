@@ -7,6 +7,9 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import TrackingSection from "../components/TrackingSection";
 import Testimonials from "../components/Testimonials";
 import HowItWorks from "../components/HowItWorks";
+import PartnersSection from "../components/PartnersSection";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -27,6 +30,9 @@ const Home = () => {
         <TrackingSection />
         <Testimonials />
         <HowItWorks />
+        <PartnersSection />
+        <ContactSection />
+        <Footer />
       </main>
     </div>
   );
