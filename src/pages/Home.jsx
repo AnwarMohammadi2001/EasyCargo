@@ -10,6 +10,7 @@ import HowItWorks from "../components/HowItWorks";
 import PartnersSection from "../components/PartnersSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import WhoWeAre from "../components/Hero/whoWeAre";
 
 const Home = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -18,13 +19,14 @@ const Home = () => {
   const closeNav = () => setIsNavOpen(false);
 
   return (
-    <div className="bg-amber-50 dark:bg-zinc-900 transition-colors duration-500">
+    <div className=" dark:bg-zinc-900 transition-colors duration-500">
       <header className="w-full transition-colors duration-500">
         <Header toggleNav={toggleNav} isNavOpen={isNavOpen} />
         <Navbar isNavOpen={isNavOpen} toggleNav={closeNav} />
       </header>
       <main className="">
         <Hero />
+        <WhoWeAre />
         <Services />
         <WhyChooseUs />
         <TrackingSection />

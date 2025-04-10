@@ -1,5 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import {
   FaTruckMoving,
   FaPlane,
@@ -77,27 +83,34 @@ const Services = () => {
         </motion.p>
       </div>
 
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={30}
+        slidesPerView={4}
+        navigation
+        pagination={{ clickable: true }}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+      >
         {services.map((service, index) => (
-          <motion.div
-            key={service.id}
-            className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <div className="flex items-center gap-4 mb-4">
-              {service.icon}
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                {service.title}
-              </h3>
+          <SwiperSlide key={service.id}>
+            <div className="bg-white dark:bg-gray-800 p-8  hover:shadow-lg transition-all duration-300 h-full">
+              <div className="flex items-center gap-4 mb-4">
+                {service.icon}
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  {service.title}
+                </h3>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {service.description}
+              </p>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              {service.description}
-            </p>
-          </motion.div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
