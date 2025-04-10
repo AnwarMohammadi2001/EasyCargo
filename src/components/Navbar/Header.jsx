@@ -5,7 +5,7 @@ import "../../utils/ResToggleBtn.css";
 
 const Header = ({ toggleNav, isNavOpen }) => {
   return (
-    <header className="h-[80px] md:h-[90px] lg:h-[100px] px-5 md:px-10 lg:px-24 flex transition-colors duration-500">
+    <header className="h-[80px] md:h-[90px] lg:h-[110px] px-5 md:px-10 lg:px-24 flex transition-colors duration-500">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center">

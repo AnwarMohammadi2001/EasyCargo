@@ -60,7 +60,7 @@ const Hero = () => {
       </video>
 
       {/* Dark Overlay */}
-      {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-10"></div> */}
+      {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40  inset-0"></div> */}
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center text-white h-full px-4">
@@ -118,16 +118,16 @@ const Hero = () => {
             {cards.map((card) => (
               <motion.div
                 key={card.id}
-                className="bg-amber-50 dark:bg-gray-800 py-6 px-8 w-[350px] rounded-2xl shadow-md hover:shadow-xl transition duration-300"
+                className="bg-primary dark:bg-gray-800 py-6 px-8 w-[350px] rounded-md shadow-md hover:shadow-xl transition duration-300"
                 variants={cardVariants}
               >
                 <div className="flex items-center space-x-5 mb-4">
                   {card.icon}
-                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                  <h3 className="text-2xl font-semibold text-gray-200 dark:text-white">
                     {card.title}
                   </h3>
                 </div>
-                <p className="mt-1 text-gray-600 dark:text-gray-300 text-sm">
+                <p className="mt-1 text-gray-300 dark:text-gray-300 text-sm">
                   {card.description}
                 </p>
               </motion.div>
