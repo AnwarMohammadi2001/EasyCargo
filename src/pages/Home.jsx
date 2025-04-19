@@ -12,6 +12,7 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import WhoWeAre from "../components/Hero/whoWeAre";
 import HeroMain from "../components/Hero/HeroMain";
+import Facts from "../components/Facts";
 
 const Home = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -24,6 +25,7 @@ const Home = () => {
       {/* <Hero /> */}
       <HeroMain />
       <WhoWeAre />
+      <Facts />
       <Services />
       <WhyChooseUs />
       <TrackingSection />

@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import {
+  contentContainer,
+  contentItem,
+  container,
+  fadeeIn,
+} from "../../utils/framermotion/variants"; // Update this path as needed
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -36,7 +43,7 @@ const HeroMain = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
+        autoplay={{ delay: 5000 }}
         slidesPerView={1}
         loop={true}
         spaceBetween={0}
@@ -50,26 +57,42 @@ const HeroMain = () => {
       >
         {sliders.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div
+            <motion.div
+              variants={contentContainer}
+              initial="hidden"
+              animate="show"
               className="w-full h-[300px] md:h-[400px] lg:h-[85vh] bg-cover bg-center relative flex items-center justify-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/50"></div>
-              <div className="relative z-10 px-6 md:px-16 text-white space-y-4 max-w-2xl">
-                <h2 className="text-2xl md:text-4xl mb-4 font-bold">
+              <motion.div
+                variants={contentContainer}
+                initial="hidden"
+                animate="show"
+                className="relative z-10 px-6 md:px-16 text-white space-y-4 max-w-2xl"
+              >
+                <motion.h2
+                  variants={contentItem}
+                  className="text-2xl md:text-4xl mb-4 font-bold"
+                >
                   {slide.title}
-                </h2>
-                <p className="text-sm md:text-base mb-4">{slide.desc}</p>
-                <div className="space-x-4">
+                </motion.h2>
+                <motion.p
+                  variants={contentItem}
+                  className="text-sm md:text-base mb-4"
+                >
+                  {slide.desc}
+                </motion.p>
+                <motion.div variants={contentItem} className="space-x-4">
                   <button className="bg-primary hover:bg-blue-600 text-lg font-bold cursor-pointer text-white px-5 py-4 rounded-md transition duration-300 w-[220px]">
                     Track Your Cargo
                   </button>
                   <button className="bg-white text-primary cursor-pointer text-lg font-bold hover:bg-gray-100 px-5 py-4 rounded-md transition duration-300 w-[220px]">
                     Get a Quote
                   </button>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
