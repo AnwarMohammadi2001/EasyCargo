@@ -11,6 +11,7 @@ import PartnersSection from "../components/PartnersSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import WhoWeAre from "../components/Hero/whoWeAre";
+import HeroMain from "../components/Hero/HeroMain";
 
 const Home = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -20,7 +21,8 @@ const Home = () => {
 
   return (
     <div className=" dark:bg-zinc-900 transition-colors duration-500">
-      <Hero />
+      {/* <Hero /> */}
+      <HeroMain />
       <WhoWeAre />
       <Services />
       <WhyChooseUs />
