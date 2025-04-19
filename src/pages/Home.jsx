@@ -20,22 +20,15 @@ const Home = () => {
 
   return (
     <div className=" dark:bg-zinc-900 transition-colors duration-500">
-      <header className="w-full transition-colors duration-500">
-        <Header toggleNav={toggleNav} isNavOpen={isNavOpen} />
-        <Navbar isNavOpen={isNavOpen} toggleNav={closeNav} />
-      </header>
-      <main className="">
-        <Hero />
-        <WhoWeAre />
-        <Services />
-        <WhyChooseUs />
-        <TrackingSection />
-        <Testimonials />
-        <HowItWorks />
-        <PartnersSection />
-        <ContactSection />
-        <Footer />
-      </main>
+      <Hero />
+      <WhoWeAre />
+      <Services />
+      <WhyChooseUs />
+      <TrackingSection />
+      <Testimonials />
+      <HowItWorks />
+      <PartnersSection />
+      <ContactSection />
     </div>
   );
 };

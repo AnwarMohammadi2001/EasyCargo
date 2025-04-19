@@ -6,8 +6,8 @@ import { FaRocket, FaShieldAlt, FaDollarSign } from "react-icons/fa";
 import {
   contentContainer,
   contentItem,
-  containerVariants,
-  cardVariants,
+  container,
+  fadeeIn,
 } from "../../utils/framermotion/variants"; // Update this path as needed
 
 const Hero = () => {
@@ -107,26 +107,30 @@ const Hero = () => {
       </div>
 
       {/* Feature Cards */}
-      <div className="absolute left-1/2 -translate-x-1/2 w-full flex justify-center transform -bottom-32 z-30 py-16">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="absolute left-1/2 -translate-x-1/2 w-full flex justify-center transform -bottom-32 z-30 py-16"
+      >
         <div className="px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="grid gap-10 md:grid-cols-3"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {cards.map((card) => (
+          <motion.div className="grid gap-10 md:grid-cols-3">
+            {cards.map((card, index) => (
               <motion.div
                 key={card.id}
                 className="bg-primary dark:bg-gray-800 py-6 px-8 w-[350px] rounded-md shadow-md hover:shadow-xl transition duration-300"
-                variants={cardVariants}
+                variants={fadeeIn("up", index * 0.3)}
+                whileInView="show"
+                initial="hidden"
+                viewport={{ once: false, amount: 0.2 }}
               >
-                <div className="flex items-center space-x-5 mb-4">
+                <motion.div  variants={fadeeIn("up",  0.3)}  className="flex items-center space-x-5 mb-4">
                   {card.icon}
                   <h3 className="text-2xl font-semibold text-gray-200 dark:text-white">
                     {card.title}
                   </h3>
-                </div>
+                </motion.div>
                 <p className="mt-1 text-gray-300 dark:text-gray-300 text-sm">
                   {card.description}
                 </p>
@@ -134,7 +138,7 @@ const Hero = () => {
             ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
