@@ -1,87 +1,191 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
+import {
+  fadeIn,
+  container,
+  contentContainer,
+  contentItem,
+} from "../utils/framermotion/variants";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "../utils/Testimonials.css";
 
-const testimonials = [
+const CUSTOMERS = [
   {
-    name: "Ali Rahimi",
-    title: "Business Owner",
-    review:
-      "Easy Cargo has been a game changer for our company. Fast, reliable, and always professional!",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    id: 1,
+    image: "person3.png",
+    message:
+      "The food was absolutely delicious! I loved the variety of dishes, and the staff was incredibly friendly. Definitely my go-to place for a great meal!The food was absolutely delicious! I loved the variety of dishes, and the staff was incredibly friendly. Definitely my go-to place for a great meal!",
+    name: "Mohammad",
+    agend: "SEO & Offcer",
   },
   {
-    name: "Sara Nazari",
-    title: "Online Seller",
-    review:
-      "Their tracking system is super helpful. I always know where my shipments are. Highly recommended!",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
+    id: 2,
+    image: "person3.png",
+    message:
+      "The food was absolutely delicious! I loved the variety of dishes, and the staff was incredibly friendly. Definitely my go-to place for a great meal!",
+    name: "Zahra Jan",
+    agend: "SEO & Offcer",
   },
   {
-    name: "Ahmad Faizi",
-    title: "Manager, Export Co.",
-    review:
-      "Affordable rates and excellent customer service. We've partnered with them for over a year now.",
-    image: "https://randomuser.me/api/portraits/men/64.jpg",
+    id: 3,
+    image: "person3.png",
+    message:
+      "“An absolutely incredible experience! The attention to detail and personalized service made our Maldives trip unforgettable. Highly recommend!”",
+    name: "Sabrena",
+    agend: "SEO & Offcer",
   },
   {
-    name: "Layla Hussaini",
-    title: "Freelancer",
-    review:
-      "The support team is responsive 24/7. That really gave me peace of mind during international deliveries.",
-    image: "https://randomuser.me/api/portraits/women/60.jpg",
+    id: 4,
+    image: "person3.png",
+    message:
+      "The food was absolutely delicious! I loved the variety of dishes, and the staff was incredibly friendly. Definitely my go-to place for a great meal!",
+    name: "The Name",
+    agend: "SEO & Offcer",
   },
 ];
 
 const Testimonials = () => {
-  return (
-    <section className="bg-white dark:bg-gray-900 py-24 px-4 sm:px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6"
-        >
-          What Our Customers Say
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto"
-        >
-          We’ve helped hundreds of customers move their cargo efficiently and
-          safely.
-        </motion.p>
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const paginationRef = useRef(null);
+  const swiperRef = useRef(null); // store swiper instance
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((testimonial, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 * idx }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow hover:shadow-lg transition duration-300"
-            >
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-16 h-16 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
-                {testimonial.name}
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {testimonial.title}
-              </p>
-              <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-                "{testimonial.review}"
-              </p>
-            </motion.div>
-          ))}
+  useEffect(() => {
+    if (paginationRef.current) {
+      paginationRef.current.classList.add("custom-pagination");
+    }
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.stop();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.start();
+    }
+  };
+
+  return (
+    <div
+      className="max-w-[90%] lg:max-w-[60%] relative group py-14 mx-auto"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.div
+        variants={contentContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <motion.div
+          variants={contentItem}
+          className="text-center flex justify-center space-y-3 mb-2"
+        >
+          <motion.h1 className="text-3xl md:text-2xl  font-bold text-primary dark:text-white">
+            TESTIMONIALS
+          </motion.h1>
+        </motion.div>
+        <motion.h2
+          variants={contentItem}
+          className="text-3xl md:text-4xl  text-center  font-bold text-black dark:text-white"
+        >
+          Top Reviews
+        </motion.h2>
+      </motion.div>
+
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        pagination={{
+          clickable: true,
+          el: paginationRef.current,
+          bulletClass: "custom-bullet",
+          bulletActiveClass: "custom-bullet-active",
+        }}
+        navigation={{
+          nextEl: ".swiper-button-next-custom",
+          prevEl: ".swiper-button-prev-custom",
+        }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          swiper.params.pagination.el = paginationRef.current;
+          swiper.pagination.init();
+          swiper.pagination.update();
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
+        autoplay={{ delay: 5000 }}
+        loop={true}
+        spaceBetween={100}
+        slidesPerView={1}
+        grabCursor={true}
+        className="overflow-visible cursor-pointer relative"
+      >
+        {Array.isArray(CUSTOMERS) && CUSTOMERS.length > 0 ? (
+          CUSTOMERS.map((customer, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex flex-col justify-center mt-7 space-y-3 items-center">
+                <FaQuoteLeft
+                  size={60}
+                  className="text-xl text-red-700 dark:text-amber-500"
+                />
+                <p className="text-center flex dark:text-gray-300 items-center justify-center gap-2 text-base text-gray-700 max-w-2xl italic">
+                  {customer.message}
+                </p>
+                <img
+                  src={customer.image}
+                  alt={customer.name}
+                  className="w-[120px] rounded-full h-[120px] mt-5"
+                />
+                <h3 className="text-lg font-bold dark:text-gray-100">
+                  {customer.name}
+                </h3>
+                <div className="flex space-x-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} className="text-yellow-500">
+                      <FaStar size={20} />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))
+        ) : (
+          <div className="w-full flex items-center justify-center text-gray-500">
+            تصاویری در دسترس نیست
+          </div>
+        )}
+      </Swiper>
+
+      <div className="flex justify-between gap-5 mb-4">
+        <div
+          ref={prevRef}
+          className="swiper-button-prev-custom cursor-pointer text-4xl py-1 px-2 rounded-full flex items-center justify-center text-gray-600 dark:text-white hover:text-green-500 transition"
+        >
+          &#8592;
+        </div>
+        <div
+          ref={nextRef}
+          className="swiper-button-next-custom cursor-pointer text-4xl py-1 px-2 rounded-full flex items-center justify-center text-gray-600 dark:text-white hover:text-green-500 transition"
+        >
+          &#8594;
         </div>
       </div>
-    </section>
+
+      <div
+        ref={paginationRef}
+        className="custom-pagination flex justify-center mt-5 space-x-2"
+      ></div>
+    </div>
   );
 };
 

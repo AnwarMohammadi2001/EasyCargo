@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import Header from "../components/Navbar/Header";
-import Hero from "../components/Hero/Hero";
 import Services from "../components/Services/services";
-import WhyChooseUs from "../components/WhyChooseUs";
 import TrackingSection from "../components/TrackingSection";
 import Testimonials from "../components/Testimonials";
 import HowItWorks from "../components/HowItWorks";
@@ -27,7 +23,6 @@ const Home = () => {
       <WhoWeAre />
       <Facts />
       <Services />
-      <WhyChooseUs />
       <TrackingSection />
       <Testimonials />
       <HowItWorks />
