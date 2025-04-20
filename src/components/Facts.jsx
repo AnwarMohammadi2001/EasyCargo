@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../utils/Button";
 import { fadeIn } from "../utils/framermotion/variants";
+import { SiCodefactor } from "react-icons/si";
 import { motion } from "framer-motion";
 import { FaHeadphones } from "react-icons/fa";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+
+import { FaUsers, FaBoxOpen, FaStar } from "react-icons/fa";
 
 const Facts = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setStartCount(true);
+    }
+  }, [inView]);
   return (
     <div className="relative overflow-hidden">
       {/* Background Pattern */}
@@ -13,20 +26,20 @@ const Facts = () => {
         aria-hidden="true"
       ></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center mt-[150px] justify-between min-h-[70vh] backdrop-blur-md gap-8 px-4">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-[150px] justify-between min-h-[70vh]  backdrop-blur-md gap-8 px-4">
         {/* Text Section */}
         <motion.div
-          variants={fadeIn("right", 0)}
+          variants={fadeIn("down", 0)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.7 }}
           className="md:w-1/2 space-y-4"
         >
           <div className="flex items-center gap-4 mb-4">
-            <img src="/title-icon-1.png" alt="" />
-            <h2 className="text-4xl font-bold text-primary">Some Facts</h2>
+            <SiCodefactor size={40} className="text-primary" />
+            <h2 className="text-xl font-bold text-primary">Some Facts</h2>
           </div>
-          <h3 className="text-xl font-semibold text-gray-700">
+          <h3 className="text-4xl font-semibold text-gray-700">
             Why people Want Us?
           </h3>
           <p className="text-gray-600 text-[14px] text-justify">
@@ -35,30 +48,64 @@ const Facts = () => {
             shipping problem and they solve it. The service is extremely
             personal and tailored to the needs of the customer.
           </p>
-          <div className="flex items-center gap-4 mt-4">
-            <div clas>
+          <div className="flex items-center gap-5 mt-4">
+            <div className="flex items-center justify-center w-16 h-16 bg-primary text-white  shadow-lg">
               <FaHeadphones size={40} className="" />
             </div>
-            <div className="mt-2">
-              <p>Call for any query!</p>
-              <p>0772387935</p>
+            <div className="">
+              <p className="text-xl font-semibold text-gray-700">
+                Call for any query!
+              </p>
+              <p className="text-2xl text-primary font-semibold ">0772387935</p>
             </div>
           </div>
         </motion.div>
 
         {/* Image Section */}
         <motion.div
-          variants={fadeIn("left", 0)}
+          variants={fadeIn("up")}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.7 }}
-          className="md:w-1/2"
+          viewport={{ once: false, amount: 0 }}
+          ref={ref}
+          className="md:w-1/2 w-full flex flex-col md:flex-row h-auto md:h-[350px] gap-5 p-4"
         >
-          <img
-            src="/about.jpg"
-            alt="Who We Are"
-            className="w-full h-auto object-cover mix-blend-multiply"
-          />
+          {/* Left Column */}
+          <div className="flex flex-col justify-between w-full md:w-1/2 gap-5">
+            {/* Happy Clients */}
+            <div className="flex flex-col items-center justify-center bg-primary text-secondary rounded-2xl shadow-lg h-[160px] p-4 text-center transition hover:scale-105">
+              <FaUsers size={36} />
+              <span className="text-3xl font-bold mt-2">
+                {startCount && <CountUp end={938} duration={2} />}
+              </span>
+              <p className="text-lg font-semibold">Happy Clients</p>
+            </div>
+
+            {/* Completed Shipments */}
+            <div className="flex flex-col items-center justify-center bg-primary text-secondary rounded-2xl shadow-lg h-[160px] p-4 text-center transition hover:scale-105">
+              <FaBoxOpen size={36} />
+              <span className="text-3xl font-bold mt-2">
+                {startCount && (
+                  <CountUp end={2530} duration={2.5} separator="," />
+                )}
+              </span>
+              <p className="text-lg font-semibold">Completed Shipments</p>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex items-center justify-center w-full md:w-1/2">
+            <div className="flex flex-col items-center justify-center bg-primary text-secondary rounded-2xl shadow-lg h-full w-full p-4 text-center transition hover:scale-105">
+              <FaStar size={36} />
+              <span className="text-3xl font-bold mt-2">
+                {startCount && (
+                  <CountUp end={4.9} duration={1.5} decimals={1} />
+                )}
+                /5
+              </span>
+              <p className="text-lg font-semibold">Customer Reviews</p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>

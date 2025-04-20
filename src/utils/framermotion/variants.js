@@ -50,25 +50,6 @@ export const container = {
 };
 // utils/framermotion/variants.js
 
-export const contentContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2, // فاصله زمانی بین انیمیشن‌های فرزند
-    },
-  },
-};
-
-export const contentItem = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
 export const containerVariants = {
   hidden: {},
   visible: {
@@ -88,5 +69,23 @@ export const cardVariants = {
       duration: 0.5, // حرکت آرام‌تر
       ease: "easeInOut", // نرم و طبیعی
     },
+  },
+};
+export const contentContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // فاصله زمانی بین انیمیشن‌های فرزند
+    },
+  },
+};
+
+export const contentItem = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
