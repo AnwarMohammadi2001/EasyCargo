@@ -26,7 +26,7 @@ const Facts = () => {
         aria-hidden="true"
       ></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-[150px] justify-between min-h-[70vh]  backdrop-blur-md gap-8 px-4">
+      <div className="relative z-10 px-10 md:px-4 md:max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-16  md:mt-[150px] justify-between min-h-[70vh]  backdrop-blur-md gap-8 ">
         {/* Text Section */}
         <motion.div
           variants={fadeIn("down", 0)}
@@ -68,7 +68,7 @@ const Facts = () => {
           whileInView="show"
           viewport={{ once: false, amount: 0 }}
           ref={ref}
-          className="md:w-1/2 w-full flex flex-col md:flex-row h-auto md:h-[350px] gap-5 p-4"
+          className="md:w-1/2 w-full flex flex-col md:flex-row h-auto md:h-[350px] gap-5"
         >
           {/* Left Column */}
           <div className="flex flex-col justify-between w-full md:w-1/2 gap-5">

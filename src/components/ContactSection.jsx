@@ -15,7 +15,7 @@ const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <section className="bg-gray-100 pt-10">
+    <section className="bg-gray-100 min-h-screen pt-10">
       {/* Contact Information */}
       <motion.div
         variants={contentContainer}
@@ -39,7 +39,7 @@ const ContactSection = () => {
           </motion.h2>
           <motion.p
             variants={contentItem}
-            className="text-3xl md:text-2xl  font-bold text-black dark:text-white"
+            className="text-base mt-2 md:text-2xl  font-bold text-black dark:text-white"
           >
             We’re here to assist with all your cargo needs. Contact us today!
           </motion.p>
@@ -47,8 +47,8 @@ const ContactSection = () => {
 
         <motion.div
           variants={contentItem}
-          className="max-w-[80%] mx-auto flex flex-col md:flex-row justify-around py-4 bg-white
-         space-y-4 md:space-y-0 md:space-x-12  h-[100px] text-gray-800 dark:text-gray-200"
+          className="max-w-[80%] mx-auto flex flex-col md:flex-row justify-around p-4 bg-white
+         space-y-4 md:space-y-0 md:space-x-12  md:h-[100px] text-gray-800 dark:text-gray-200"
         >
           <div className="flex items-center gap-x-4">
             <FaLocationDot className="text-4xl text-[#F4A91A]" />
@@ -103,7 +103,7 @@ const ContactSection = () => {
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="h-full w-full"
             >
-              <img src="slider/ab1.webp" alt="" className="h-full w-full" />
+              <img src="slider/ab1.webp" alt="" className="h-[250px] md:h-full w-full" />
             </motion.div>
             <div className="p-4 md:p-8">
               <form className="space-y-6">

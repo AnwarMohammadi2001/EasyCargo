@@ -39,7 +39,7 @@ const HeroMain = () => {
   ];
 
   return (
-    <div className="w-full h-[300px] md:h-[400px] lg:h-[600px] relative group">
+    <div className="w-full h-screen md:h-[400px] lg:h-[600px] relative group">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
@@ -61,7 +61,7 @@ const HeroMain = () => {
               variants={contentContainer}
               initial="hidden"
               animate="show"
-              className="w-full h-[300px] md:h-[400px] lg:h-[85vh] bg-cover bg-center relative flex items-center justify-center"
+              className="w-full min-h-screen md:h-[400px] lg:h-[85vh] bg-cover bg-center relative flex pt-28 md:pt-0 md:items-center justify-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/50"></div>
@@ -83,7 +83,10 @@ const HeroMain = () => {
                 >
                   {slide.desc}
                 </motion.p>
-                <motion.div variants={contentItem} className="space-x-4">
+                <motion.div
+                  variants={contentItem}
+                  className="flex flex-col md:flex-row gap-5 items-center "
+                >
                   <button className="bg-primary hover:bg-blue-600 text-lg font-bold cursor-pointer text-white px-5 py-4 rounded-md transition duration-300 w-[220px]">
                     Track Your Cargo
                   </button>
@@ -98,21 +101,24 @@ const HeroMain = () => {
       </Swiper>
 
       {/* Navigation buttons */}
-      <div className="absolute top-2/3 right-16  z-20 flex flex-col gap-10 group">
-        <div
+      <div className="absolute bottom-[190px] md:top-2/3 right-1/2 translate-x-1/2 md:right-16 md:translate-x-0 z-20 flex md:flex-col gap-10 group">
+        <button
           ref={(node) => setNextEl(node)}
           onMouseDown={(e) => e.preventDefault()}
-          className="w-[50px] h-[50px] items-center justify-center rounded-full border-white border text-white shadow-md cursor-pointer hidden hover:bg-primary group-hover:flex transition"
+          aria-label="Next Slide"
+          className="w-[50px] h-[50px]  items-center justify-center rounded-full border border-white text-white shadow-md cursor-pointer hidden hover:bg-primary group-hover:flex transition"
         >
           <MdArrowForwardIos size={24} />
-        </div>
-        <div
+        </button>
+
+        <button
           ref={(node) => setPrevEl(node)}
           onMouseDown={(e) => e.preventDefault()}
-          className="w-[50px] h-[50px] items-center justify-center rounded-full border-white border text-white shadow-md cursor-pointer hover:bg-primary hidden group-hover:flex transition"
+          aria-label="Previous Slide"
+          className="w-[50px] h-[50px]  items-center justify-center rounded-full border border-white text-white shadow-md cursor-pointer hidden hover:bg-primary group-hover:flex transition"
         >
           <MdArrowBackIos size={24} />
-        </div>
+        </button>
       </div>
     </div>
   );

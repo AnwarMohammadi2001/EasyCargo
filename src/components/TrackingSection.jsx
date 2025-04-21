@@ -17,7 +17,7 @@ const TrackingSection = () => {
 
   return (
     <div
-      className="relative w-full h-80 my-5 bg-cover bg-center flex items-center justify-around"
+      className="relative w-full h-80 my-5 bg-cover bg-center flex p-10 md:p-0 flex-col md:flex-row items-center justify-around"
       style={{
         backgroundImage: `url(${trackingBg})`,
       }}
@@ -46,7 +46,7 @@ const TrackingSection = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0 }}
-        className="text-center bg-white relative z-10 flex justify-end w-[450px] rounded-xl overflow-hidden"
+        className="text-center bg-white relative z-10 flex justify-end w-[300px] md:w-[450px] rounded-xl overflow-hidden"
       >
         <input
           type="text"

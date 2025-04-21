@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const WhoWeAre = () => {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden p-5">
       {/* Background Pattern */}
       <div
         className="absolute inset-0 z-0 bg-[url('/pattern.svg')] bg-no-repeat bg-cover opacity-10"
