@@ -5,14 +5,11 @@ import { motion } from "framer-motion";
 
 const WhoWeAre = () => {
   return (
-    <div className="relative overflow-hidden p-5">
+    <div className="relative overflow-hidden  p-5">
       {/* Background Pattern */}
-      <div
-        className="absolute inset-0 z-0 bg-[url('/pattern.svg')] bg-no-repeat bg-cover opacity-10"
-        aria-hidden="true"
-      ></div>
+    
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center mt-[150px] justify-between min-h-[70vh] backdrop-blur-md gap-8 px-4">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center  justify-center min-h-[70vh]  gap-8 px-4">
         {/* Text Section */}
         <motion.div
           variants={fadeIn("right", 0)}

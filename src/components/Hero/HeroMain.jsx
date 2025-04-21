@@ -39,7 +39,7 @@ const HeroMain = () => {
   ];
 
   return (
-    <div className="w-full h-screen md:h-[400px] lg:h-[600px] relative group">
+    <div className="w-full h-screen md:h-[400px] lg:h-[690px] relative group">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
@@ -53,7 +53,7 @@ const HeroMain = () => {
           nextEl,
         }}
         grabCursor={true}
-        className="overflow-visible shadow-lg cursor-pointer relative"
+        className="overflow-visible shadow-lg cursor-pointer h-full relative"
       >
         {sliders.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -61,7 +61,7 @@ const HeroMain = () => {
               variants={contentContainer}
               initial="hidden"
               animate="show"
-              className="w-full min-h-screen md:h-[400px] lg:h-[85vh] bg-cover bg-center relative flex pt-28 md:pt-0 md:items-center justify-center"
+              className="w-full min-h-screen md:h-[400px] lg:h-[690px] bg-cover bg-center relative flex pt-28 md:pt-0 md:items-center justify-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/50"></div>

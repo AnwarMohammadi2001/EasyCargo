@@ -19,14 +19,14 @@ const Facts = () => {
     }
   }, [inView]);
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative  overflow-hidden">
       {/* Background Pattern */}
       <div
         className="absolute inset-0 z-0 bg-[url('/pattern.svg')] bg-no-repeat bg-cover opacity-10"
         aria-hidden="true"
       ></div>
 
-      <div className="relative z-10 px-10 md:px-4 md:max-w-7xl mx-auto flex flex-col md:flex-row items-center mt-16  md:mt-[150px] justify-between min-h-[70vh]  backdrop-blur-md gap-8 ">
+      <div className="relative z-10 px-10 md:px-4 md:max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[70vh]  backdrop-blur-md gap-8 ">
         {/* Text Section */}
         <motion.div
           variants={fadeIn("down", 0)}
