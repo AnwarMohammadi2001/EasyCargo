@@ -1,94 +1,115 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import {
   FaLaptop,
   FaTruckPickup,
   FaShippingFast,
   FaMapMarkedAlt,
 } from "react-icons/fa";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
+// Step data
 const steps = [
   {
     id: 1,
     title: "Book Online",
-    description: "Easily schedule your shipment from our website or mobile app.",
-    icon: <FaLaptop className="text-3xl text-green-500" />,
+    description:
+      "Easily schedule your shipment from our website or mobile app.",
+    icon: <FaLaptop className="text-white text-2xl" />,
+    bg: "bg-gradient-to-br from-green-400 to-green-600",
+    image: "https://via.placeholder.com/400x200?text=Book+Online",
   },
   {
     id: 2,
     title: "We Pick Up",
     description: "Our team picks up the cargo from your doorstep or warehouse.",
-    icon: <FaTruckPickup className="text-3xl text-blue-500" />,
+    icon: <FaTruckPickup className="text-white text-2xl" />,
+    bg: "bg-gradient-to-br from-blue-400 to-blue-600",
+    image: "https://via.placeholder.com/400x200?text=Pick+Up",
   },
   {
     id: 3,
     title: "We Deliver",
     description: "We safely deliver your cargo to the destination on time.",
-    icon: <FaShippingFast className="text-3xl text-yellow-500" />,
+    icon: <FaShippingFast className="text-white text-2xl" />,
+    bg: "bg-gradient-to-br from-yellow-400 to-yellow-600",
+    image: "https://via.placeholder.com/400x200?text=Deliver",
   },
   {
     id: 4,
     title: "You Track It",
-    description: "Track your shipment in real-time with our GPS-enabled system.",
-    icon: <FaMapMarkedAlt className="text-3xl text-purple-500" />,
+    description:
+      "Track your shipment in real-time with our GPS-enabled system.",
+    icon: <FaMapMarkedAlt className="text-white text-2xl" />,
+    bg: "bg-gradient-to-br from-purple-400 to-purple-600",
+    image: "https://via.placeholder.com/400x200?text=Track",
   },
 ];
 
 const HowItWorks = () => {
   return (
     <section className="bg-white dark:bg-gray-900 py-20 px-4 sm:px-8 lg:px-24">
+      {/* Section Header */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-white"
-        >
+        <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-white">
           How It Works
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto"
-        >
-          A simple and seamless cargo delivery process designed with you in mind.
-        </motion.p>
+        </h2>
+        <p className="text-lg md:text-xl text-black dark:text-white mt-4">
+          A simple and seamless cargo delivery process designed with you in
+          mind.
+        </p>
       </div>
 
-      <div className="relative grid gap-10 md:grid-cols-2">
-        {/* Vertical line */}
-        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 dark:bg-gray-700" />
-
-        {steps.map((step, idx) => (
-          <motion.div
-            key={step.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 * idx }}
-            className={`relative md:col-span-1 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-6 md:w-[90%] ${
-              idx % 2 === 0
-                ? "md:ml-auto md:mr-8"
-                : "md:mr-auto md:ml-8"
-            }`}
-          >
-            <div className="flex items-center mb-4">
-              <div className="bg-white dark:bg-gray-700 p-3 rounded-full shadow-md">
-                {step.icon}
+      {/* Swiper Steps */}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        loop={true}
+        autoplay={{ delay: 3000 }}
+        spaceBetween={30}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        navigation
+        breakpoints={{
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2 },
+        }}
+        className="cursor-pointer"
+      >
+        {steps.map((step, index) => (
+          <SwiperSlide key={step.id}>
+            <div className="relative group rounded-2xl bg-white dark:bg-gray-800 p-8 shadow-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col justify-between">
+              {/* Image */}
+              <div className="overflow-hidden rounded-xl mb-6">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-full h-56 object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <h3 className="ml-4 text-lg font-bold text-gray-800 dark:text-white">
-                {step.title}
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              {step.description}
-            </p>
 
-            {/* Dot connector */}
-            <div className="hidden md:block absolute top-5 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-gray-900 z-10" />
-          </motion.div>
+              {/* Icon + Title */}
+              <div className="flex items-center gap-4 mb-4">
+                <div
+                  className={`w-14 h-14 flex items-center justify-center rounded-full shadow-md ${step.bg}`}
+                >
+                  {step.icon}
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white">
+                  {step.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </section>
   );
 };

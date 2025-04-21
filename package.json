@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/vite": "^4.0.12",
     "framer-motion": "^12.4.11",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",

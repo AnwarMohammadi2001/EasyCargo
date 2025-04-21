@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../utils/framermotion/variants";
+import { fadeeIn } from "../../utils/framermotion/variants";
 
 const ServicesCard = ({ service, index }) => {
   return (
     <motion.div
-      variants={fadeIn("up", index * 0.3)}
+      variants={fadeeIn("up", index * 0.3)}
       whileInView="show"
       initial="hidden"
       viewport={{ once: false, amount: 0.2 }}

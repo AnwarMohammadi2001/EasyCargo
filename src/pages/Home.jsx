@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import WhoWeAre from "../components/Hero/whoWeAre";
 import HeroMain from "../components/Hero/HeroMain";
 import Facts from "../components/Facts";
+import Marquee from "../components/Marquee/Marquee";
 
 const Home = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -25,8 +26,9 @@ const Home = () => {
       <Services />
       <TrackingSection />
       <Testimonials />
-      <HowItWorks />
-      <PartnersSection />
+      {/* <HowItWorks /> */}
+      {/* <Marquee /> */}
+      {/* <PartnersSection /> */}
       <ContactSection />
     </div>
   );

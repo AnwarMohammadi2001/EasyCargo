@@ -55,7 +55,7 @@ const Header = ({ toggleNav, isNavOpen }) => {
                 Phone:
               </span>
               <span className="text-lg font-semibold text-[#1C70BA]">
-                +1 234 567 890
+                +93 772 387 935
               </span>
             </div>
           </div>
