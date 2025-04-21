@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaSun, FaMoon, FaGlobe } from "react-icons/fa";
+import { FaSun, FaMoon, FaGlobe, FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../redux/darkModeSlice";
 import { toggleLanguage } from "../../redux/languageSlice";
@@ -20,6 +20,14 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
   const iconClass = darkMode ? "text-amber-500" : "text-amber-50";
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const [trackingId, setTrackingId] = useState("");
+
+  const handleSearch = () => {
+    if (trackingId.trim() !== "") {
+      alert(`Searching for: ${trackingId}`);
+      setTrackingId("");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +44,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
         isScrolled ? "fixed top-0 left-0 shadow-md" : "relative"
       }`}
     >
-      <div className="flex items-center px-5 md:px-10 lg:px-24 justify-between py-2">
+      <div className="flex items-center  px-5 md:px-10 lg:px-24 justify-center md:justify-between py-2">
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-10 py-1.5 font-medium">
           {navItems.map((item) => {
@@ -68,8 +76,26 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
           })}
         </ul>
 
-        {/* Icons */}
-        <div className="flex space-x-4">
+        {/* Icons + Search (Desktop) */}
+        <div className="flex items-center gap-4">
+          {/* Search Box */}
+          <div className="flex items-center border border-amber-400 rounded-full overflow-hidden">
+            <input
+              type="text"
+              placeholder="Track ID"
+              value={trackingId}
+              onChange={(e) => setTrackingId(e.target.value)}
+              className="px-3 py-1.5 text-sm bg-transparent text-white placeholder:text-amber-100 focus:outline-none"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-amber-400 px-3 py-2 border border-amber-500 hover:bg-amber-500 text-black"
+            >
+              <FaSearch size={14} />
+            </button>
+          </div>
+
+          {/* Dark Mode Toggle */}
           {darkMode ? (
             <FaSun
               className={`w-6 h-6 cursor-pointer ${iconClass}`}
@@ -81,6 +107,8 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
               onClick={() => dispatch(toggleDarkMode())}
             />
           )}
+
+          {/* Language Toggle */}
           <FaGlobe
             className={`w-6 h-6 cursor-pointer ${iconClass}`}
             onClick={() => dispatch(toggleLanguage())}
@@ -112,6 +140,25 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
             );
           })}
         </ul>
+
+        {/* Mobile Search Box */}
+        <div className="px-6 pb-4">
+          <div className="flex items-center border border-amber-400 rounded-md overflow-hidden">
+            <input
+              type="text"
+              placeholder="Track ID"
+              value={trackingId}
+              onChange={(e) => setTrackingId(e.target.value)}
+              className="px-2 py-1 w-full text-sm bg-transparent text-white placeholder:text-amber-100 focus:outline-none"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-amber-400 px-2 py-1 hover:bg-amber-500 text-black"
+            >
+              <FaSearch size={16} />
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );

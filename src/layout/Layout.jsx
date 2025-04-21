@@ -4,12 +4,12 @@ import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Navbar/Header";
 import Footer from "../components/Footer";
 import { IoMdArrowRoundUp } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Layout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Function to handle scroll event
   const handleScroll = () => {
     if (window.scrollY > 200) {
       setIsScrolled(true);
@@ -18,13 +18,11 @@ const Layout = () => {
     }
   };
 
-  // Add scroll event listener when the component is mounted
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Function to scroll to the top of the page
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,8 +32,9 @@ const Layout = () => {
 
   const toggleNav = () => setIsNavOpen((prev) => !prev);
   const closeNav = () => setIsNavOpen(false);
+
   return (
-    <div className=" relative dark:bg-zinc-900 transition-colors duration-500">
+    <div className="relative dark:bg-zinc-900 transition-colors duration-500">
       <header className="w-full transition-colors duration-500">
         <Header toggleNav={toggleNav} isNavOpen={isNavOpen} />
         <Navbar isNavOpen={isNavOpen} toggleNav={closeNav} />
@@ -44,8 +43,9 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
+
       {isScrolled && (
-        <div className="fixed bottom-10 z-50 right-10 ">
+        <div className="fixed bottom-10 z-50 right-10">
           <button
             onClick={scrollToTop}
             className="bg-[#ED8D1D] text-black dark:bg-gray-100 dark:text-slate-900 p-2 rounded-lg shadow-lg hover:text-white transition duration-300 cursor-pointer"
@@ -54,6 +54,18 @@ const Layout = () => {
           </button>
         </div>
       )}
+
+      {/* WhatsApp Contact Button */}
+      <div className="fixed bottom-10 z-50 left-10 bg-green-500 text-white p-3 rounded-full flex justify-center items-center shadow-lg hover:bg-green-600 transition duration-300">
+        <a
+          href="https://wa.me/93772387935" // Replace with your number
+          target="_blank"
+          rel="noopener noreferrer"
+          className=""
+        >
+          <FaWhatsapp size={28} />
+        </a>
+      </div>
     </div>
   );
 };
