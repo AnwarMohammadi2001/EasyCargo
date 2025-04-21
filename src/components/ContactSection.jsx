@@ -22,7 +22,7 @@ const ContactSection = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.3 }}
-        className="container mx-auto text-center"
+        className=" text-center"
       >
         <motion.div
           variants={contentContainer}
