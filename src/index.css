@@ -95,3 +95,13 @@ body {
 .custom-pagination .swiper-pagination-bullet-active {
   @apply w-6 h-1.5 bg-[#02DB81] scale-110;
 }
+
+.MyGradient {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}

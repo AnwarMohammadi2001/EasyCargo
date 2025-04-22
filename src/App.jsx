@@ -7,6 +7,7 @@ import Services from "./components/Services/services";
 import TrackingSection from "./components/TrackingSection";
 import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/about" element={<WhyChooseUs />} />
+          <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/quote" element={<TrackingSection />} />
           <Route path="/gallery" element={<Testimonials />} />

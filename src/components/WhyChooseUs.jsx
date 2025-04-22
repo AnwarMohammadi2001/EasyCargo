@@ -29,11 +29,6 @@ const features = [
     icon: <FaClock className="text-4xl text-[#02DB81]" />,
     description: "Your time matters — we ensure timely deliveries, always.",
   },
-  {
-    title: "Experienced Drivers",
-    icon: <FaUserTie className="text-4xl text-[#02DB81]" />,
-    description: "Highly trained and trusted drivers handle your cargo.",
-  },
 ];
 
 const WhyChooseUs = () => {
@@ -83,7 +78,7 @@ const WhyChooseUs = () => {
       {/* Optional: Add some stats */}
       <div className="mt-20 grid sm:grid-cols-2 md:grid-cols-4 text-center gap-10">
         <div>
-          <h3 className="text-3xl font-bold text-[#02DB81]">10K+</h3>
+          <h3 className="text-3xl font-bold text-[#010302]">10K+</h3>
           <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
             Deliveries Completed
           </p>
