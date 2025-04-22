@@ -122,7 +122,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
           isNavOpen ? "max-h-[500px]" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col items-start px-6 py-4 space-y-4 font-semibold">
+        <ul className="flex flex-col items-start px-6 py-4 space-y-2 font-semibold">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
@@ -130,7 +130,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
                 <Link
                   to={item.path}
                   onClick={toggleNav}
-                  className={`${
+                  className={` text-lg  ${
                     isActive ? "text-amber-400" : "text-white"
                   } hover:text-amber-400`}
                 >
@@ -140,25 +140,6 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
             );
           })}
         </ul>
-
-        {/* Mobile Search Box */}
-        <div className="px-6 pb-4">
-          <div className="flex items-center border border-amber-400 rounded-md overflow-hidden">
-            <input
-              type="text"
-              placeholder="Track ID"
-              value={trackingId}
-              onChange={(e) => setTrackingId(e.target.value)}
-              className="px-2 py-1 w-full text-sm bg-transparent text-white placeholder:text-amber-100 focus:outline-none"
-            />
-            <button
-              onClick={handleSearch}
-              className="bg-amber-400 px-2 py-1 hover:bg-amber-500 text-black"
-            >
-              <FaSearch size={16} />
-            </button>
-          </div>
-        </div>
       </div>
     </nav>
   );

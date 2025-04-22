@@ -5,6 +5,13 @@ import GallaryHeader from "../components/Gallary/GallaryHeader";
 import Testimonials from "../components/Testimonials";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { HiOutlineMinusSm } from "react-icons/hi";
+import {
+  contentContainer,
+  contentItem,
+  container,
+  fadeeIn,
+} from "../utils/framermotion/variants"; // Update this path as needed
+import { motion } from "framer-motion";
 
 const Gallary = () => {
   const videoRefs = useRef([]);
@@ -69,25 +76,25 @@ const Gallary = () => {
       <GallaryHeader />
 
       <div className="max-w-7xl mx-auto bg-white py-20 text-gray-800 px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-primary mb-4">
-            Our Cargo Gallery
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Take a look at some of our cargo deliveries, user experiences, and
-            feedback from satisfied customers.
-          </p>
-        </div>
-
         {/* Image Gallery */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-6 text-primary text-center">
             Delivered Cargos & Parcels
           </h3>
-          <Box sx={{ width: "100%", minHeight: 400 }}>
+          <motion.Box
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+            sx={{ width: "100%", minHeight: 400 }}
+          >
             <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
               {images.map((src, index) => (
-                <img
+                <motion.img
+                  variants={fadeeIn("up", index * 0.3)}
+                  whileInView="show"
+                  initial="hidden"
+                  viewport={{ once: false, amount: 0.2 }}
                   key={index}
                   src={src}
                   alt={`Cargo ${index + 1}`}
@@ -96,7 +103,7 @@ const Gallary = () => {
                 />
               ))}
             </Masonry>
-          </Box>
+          </motion.Box>
         </div>
 
         {/* Video Section */}
@@ -104,9 +111,19 @@ const Gallary = () => {
           <h3 className="text-2xl font-bold mb-6 text-primary text-center">
             What Our Users Say
           </h3>
-          <div className="flex flex-wrap gap-6 justify-center">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+            className="flex flex-wrap gap-6 justify-center"
+          >
             {videos.map((video, index) => (
-              <video
+              <motion.video
+                variants={fadeeIn("up", index * 0.3)}
+                whileInView="show"
+                initial="hidden"
+                viewport={{ once: false, amount: 0.2 }}
                 key={index}
                 ref={(el) => (videoRefs.current[index] = el)}
                 src={video}
@@ -115,7 +132,7 @@ const Gallary = () => {
                 className="w-full md:w-80 h-56 object-cover rounded-lg shadow-md"
               />
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* User Reviews */}
@@ -124,13 +141,26 @@ const Gallary = () => {
         </div>
 
         {/* Delivered Orders */}
-        <div>
-          <h3 className="text-2xl font-bold mb-6 text-primary text-center">
+        <motion.div variants={contentContainer} initial="hidden" animate="show">
+          <motion.h3
+            variants={contentItem}
+            className="text-2xl font-bold mb-6 text-primary text-center"
+          >
             Delivered Orders
-          </h3>
-          <div className="max-w-2xl mx-auto">
+          </motion.h3>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+            className="max-w-3xl mx-auto"
+          >
             {deliveredOrders.map((order, index) => (
-              <div
+              <motion.div
+                variants={fadeeIn("up", index * 0.3)}
+                whileInView="show"
+                initial="hidden"
+                viewport={{ once: false, amount: 0.2 }}
                 key={index}
                 className="bg-gray-100 px-4 py-6  mb-4 shadow-sm"
               >
@@ -166,10 +196,10 @@ const Gallary = () => {
                 >
                   <p className="text-base text-gray-700">{order.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
