@@ -1,105 +1,213 @@
 import React from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaHeadset,
   FaMapMarkedAlt,
   FaMoneyBillWave,
   FaClock,
-  FaUserTie,
 } from "react-icons/fa";
-
-const features = [
-  {
-    title: "24/7 Customer Support",
-    icon: <FaHeadset className="text-4xl text-[#02DB81]" />,
-    description: "We’re always here to assist you — day or night, 365 days.",
-  },
-  {
-    title: "Live GPS Tracking",
-    icon: <FaMapMarkedAlt className="text-4xl text-[#02DB81]" />,
-    description: "Track your cargo in real-time with our GPS systems.",
-  },
-  {
-    title: "Affordable Rates",
-    icon: <FaMoneyBillWave className="text-4xl text-[#02DB81]" />,
-    description: "Competitive pricing without compromising on service.",
-  },
-  {
-    title: "On-Time Delivery",
-    icon: <FaClock className="text-4xl text-[#02DB81]" />,
-    description: "Your time matters — we ensure timely deliveries, always.",
-  },
-];
+import { FaPause, FaPlay } from "react-icons/fa";
 
 const WhyChooseUs = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
   return (
-    <section className="bg-white dark:bg-gray-900 py-24 px-4 sm:px-6 lg:px-16">
-      <div className="max-w-7xl mx-auto text-center mb-14">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white"
-        >
-          Why Choose Easy Cargo?
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto"
-        >
-          Discover the reasons our customers trust us for their cargo needs.
-        </motion.p>
-      </div>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
+    <section className="dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 py-24 ">
+        {/* Section Header */}
+        <div className="text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-lg transition"
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white"
           >
-            <div className="mb-4 flex items-center gap-4">
-              {feature.icon}
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                {feature.title}
-              </h3>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              {feature.description}
-            </p>
-          </motion.div>
-        ))}
-      </div>
+            Why Choose Easy Cargo?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-base"
+          >
+            Discover the reasons our customers trust us for their cargo needs.
+          </motion.p>
+        </div>
 
-      {/* Optional: Add some stats */}
-      <div className="mt-20 grid sm:grid-cols-2 md:grid-cols-4 text-center gap-10">
-        <div>
-          <h3 className="text-3xl font-bold text-[#010302]">10K+</h3>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-            Deliveries Completed
-          </p>
+        {/* Feature 1 */}
+        <div className="grid md:grid-cols-2  items-center mt-10 bg-amber-100  overflow-hidden shadow-md">
+          <div className="p-10">
+            <div className="flex items-center gap-4 mb-4">
+              <FaHeadset className="text-4xl text-[#02DB81]" />
+              <h2 className="font-bold text-2xl text-gray-800">
+                24/7 Customer Support
+              </h2>
+            </div>
+            <p className="text-gray-700 dark:text-gray-300 text-justify text-base">
+              We understand that in the world of cargo and logistics, time is
+              critical and support can’t wait. That’s why our dedicated customer
+              support team is available 24 hours a day, 7 days a week, including
+              holidays. Whether you're tracking a shipment, facing a
+              customs-related inquiry, or need assistance with documentation and
+              logistics planning, our knowledgeable team is always just a call
+              or message away.
+            </p>
+          </div>
+          <img
+            src="/about/new.jpg"
+            alt="Support"
+            className="h-full w-full object-cover"
+          />
         </div>
-        <div>
-          <h3 className="text-3xl font-bold text-[#02DB81]">99%</h3>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-            On-Time Delivery Rate
-          </p>
+
+        {/* Feature 2 */}
+        <div className="grid md:grid-cols-2 mt-5 items-center bg-amber-100 overflow-hidden shadow-md relative">
+          <div className="relative">
+            <video
+              ref={videoRef}
+              src="cargo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover order-1 md:order-none"
+            ></video>
+
+            {/* Overlay when paused */}
+            {!isPlaying && (
+              <div className="absolute inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-10">
+                <p className="text-white text-xl">Video Paused</p>
+              </div>
+            )}
+
+            {/* Play/Pause Button */}
+            <button
+              onClick={togglePlay}
+              className="absolute bottom-4 right-4 z-20 p-3 bg-white bg-opacity-80 rounded-full shadow hover:bg-opacity-100 transition"
+            >
+              {isPlaying ? <FaPause /> : <FaPlay />}
+            </button>
+          </div>
+
+          <div className="p-10">
+            <div className="flex items-center gap-4 mb-4">
+              <FaMapMarkedAlt className="text-4xl text-[#02DB81]" />
+              <h2 className="font-bold text-2xl text-gray-800">
+                Live GPS Tracking
+              </h2>
+            </div>
+            <p className="text-gray-700 dark:text-gray-300 text-justify text-base">
+              Stay in control of your shipments with our advanced live GPS
+              tracking system. We provide real-time visibility into your cargo’s
+              location, movement, and delivery status across every stage of the
+              journey. Whether it’s local or international shipping, you’ll have
+              instant access to route updates, estimated arrival times, and any
+              unexpected delays — all from your dashboard or mobile device.
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="text-3xl font-bold text-[#02DB81]">24/7</h3>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-            Customer Support
-          </p>
+
+        {/* Feature 3 and 4 */}
+        <div className="grid md:grid-cols-2 gap-8 mt-10">
+          {/* Affordable Rates */}
+          <div className="bg-amber-100  shadow-md overflow-hidden">
+            <img
+              src="/about/price.jpg"
+              alt="Rates"
+              className="h-[220px] w-full object-cover"
+            />
+            <div className="p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <FaMoneyBillWave className="text-4xl text-[#02DB81]" />
+                <h2 className="font-bold text-2xl text-gray-800">
+                  Affordable Rates
+                </h2>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-justify text-base">
+                We offer cost-effective shipping solutions tailored to your
+                needs — without ever compromising on reliability or service
+                quality. Whether you’re moving small parcels or large freight,
+                our competitive pricing ensures that you get the best value for
+                your money.
+              </p>
+            </div>
+          </div>
+
+          {/* On-Time Delivery */}
+          <div className="bg-amber-100  shadow-md overflow-hidden">
+            <img
+              src="/about/ontime.jpg"
+              alt="On-Time"
+              className="h-[220px] w-full object-cover"
+            />
+            <div className="p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <FaClock className="text-4xl text-[#02DB81]" />
+                <h2 className="font-bold text-2xl text-gray-800">
+                  On-Time Delivery
+                </h2>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-justify text-base">
+                Punctuality is at the heart of our logistics service. We
+                understand that delays can disrupt your business, which is why
+                we are committed to ensuring your cargo arrives on schedule —
+                every time. Through our efficient planning, reliable
+                transportation network, and real-time tracking, we minimize
+                transit time and prevent unnecessary hold-ups.
+              </p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3 className="text-3xl font-bold text-[#02DB81]">15+</h3>
-          <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
-            Years of Experience
-          </p>
+
+        {/* Statistics Section */}
+        <div className="bg-gray-200 py-14 rounded-2xl mt-10 shadow-inner">
+          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-10 text-center">
+            {[
+              {
+                label: "Deliveries Completed",
+                value: "10K+",
+                color: "#010302",
+              },
+              {
+                label: "On-Time Delivery Rate",
+                value: "99%",
+                color: "#02DB81",
+              },
+              { label: "Customer Support", value: "24/7", color: "#02DB81" },
+              { label: "Years of Experience", value: "15+", color: "#02DB81" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <h3
+                  className="text-4xl font-bold"
+                  style={{ color: item.color }}
+                >
+                  {item.value}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                  {item.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
