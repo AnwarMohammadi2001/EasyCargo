@@ -2,12 +2,13 @@ import React from "react";
 import AboutHeader from "../components/about/AboutHeader";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import WhyChooseUs from "../components/WhyChooseUs";
+import AboutServices from "../components/Services/AboutServices";
 
 const About = () => {
   return (
-    <div>
+    <div className="">
       <AboutHeader />
-      <div className=" max-w-7xl mx-auto mt-10 px-4 md:px-10 lg:px-24 space-y-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className=" max-w-7xl mx-auto mt-10 px-4 md:px-10 lg:px-24 space-y-16 grid grid-cols-1 md:grid-cols-3 gap-10 p-5">
         {/* Section One: Story, Mission & Vision */}
         <div className="col-span-2 space-y-10 py-10">
           <div className="flex items-center gap-4 mb-4">
@@ -95,6 +96,7 @@ const About = () => {
         </div>
       </div>
       <WhyChooseUs />
+      <AboutServices />
     </div>
   );
 };

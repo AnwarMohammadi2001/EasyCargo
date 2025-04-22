@@ -89,3 +89,22 @@ export const contentItem = {
     transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
+
+export const scaleFadeVariant = (delay = 0) => ({
+  hidden: {
+    opacity: 0,
+    scale: 1.1, // Slight zoom-in, more subtle
+    y: 20, // Slight vertical offset adds natural motion
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "tween",
+      duration: 1.4, // Slightly slower for more elegance
+      delay,
+      ease: [0.22, 1, 0.36, 1], // More fluid easing (easeOutExpo-like)
+    },
+  },
+});

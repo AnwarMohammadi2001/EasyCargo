@@ -1,13 +1,14 @@
-import React from "react";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaHeadset,
   FaMapMarkedAlt,
   FaMoneyBillWave,
   FaClock,
+  FaPause,
+  FaPlay,
 } from "react-icons/fa";
-import { FaPause, FaPlay } from "react-icons/fa";
+import { scaleFadeVariant, fadeeIn } from "../utils/framermotion/variants";
 
 const WhyChooseUs = () => {
   const videoRef = useRef(null);
@@ -25,6 +26,7 @@ const WhyChooseUs = () => {
       setIsPlaying(false);
     }
   };
+
   return (
     <section className="dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 py-24 ">
@@ -49,7 +51,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Feature 1 */}
-        <div className="grid md:grid-cols-2  items-center mt-10 bg-amber-100  overflow-hidden shadow-md">
+        <div className="grid md:grid-cols-2 items-center mt-10 bg-amber-100 overflow-hidden shadow-md">
           <div className="p-10">
             <div className="flex items-center gap-4 mb-4">
               <FaHeadset className="text-4xl text-[#02DB81]" />
@@ -67,7 +69,11 @@ const WhyChooseUs = () => {
               or message away.
             </p>
           </div>
-          <img
+          <motion.img
+            variants={scaleFadeVariant(0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
             src="/about/new.jpg"
             alt="Support"
             className="h-full w-full object-cover"
@@ -75,9 +81,14 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Feature 2 */}
-        <div className="grid md:grid-cols-2 mt-5 items-center bg-amber-100 overflow-hidden shadow-md relative">
-          <div className="relative">
-            <video
+        <motion.div className="grid md:grid-cols-2 mt-5 items-center bg-amber-100 overflow-hidden shadow-md relative">
+          {/* Video Section */}
+          <div className="relative overflow-hidden">
+            <motion.video
+              variants={scaleFadeVariant(0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               ref={videoRef}
               src="cargo.mp4"
               autoPlay
@@ -85,16 +96,14 @@ const WhyChooseUs = () => {
               muted
               playsInline
               className="h-full w-full object-cover order-1 md:order-none"
-            ></video>
+            ></motion.video>
 
-            {/* Overlay when paused */}
             {!isPlaying && (
               <div className="absolute inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-10">
                 <p className="text-white text-xl">Video Paused</p>
               </div>
             )}
 
-            {/* Play/Pause Button */}
             <button
               onClick={togglePlay}
               className="absolute bottom-4 right-4 z-20 p-3 bg-white bg-opacity-80 rounded-full shadow hover:bg-opacity-100 transition"
@@ -103,6 +112,7 @@ const WhyChooseUs = () => {
             </button>
           </div>
 
+          {/* Text Content */}
           <div className="p-10">
             <div className="flex items-center gap-4 mb-4">
               <FaMapMarkedAlt className="text-4xl text-[#02DB81]" />
@@ -119,13 +129,17 @@ const WhyChooseUs = () => {
               unexpected delays — all from your dashboard or mobile device.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Feature 3 and 4 */}
         <div className="grid md:grid-cols-2 gap-8 mt-10">
           {/* Affordable Rates */}
-          <div className="bg-amber-100  shadow-md overflow-hidden">
-            <img
+          <div className="bg-amber-100 shadow-md overflow-hidden">
+            <motion.img
+              variants={scaleFadeVariant(0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               src="/about/price.jpg"
               alt="Rates"
               className="h-[220px] w-full object-cover"
@@ -148,8 +162,12 @@ const WhyChooseUs = () => {
           </div>
 
           {/* On-Time Delivery */}
-          <div className="bg-amber-100  shadow-md overflow-hidden">
-            <img
+          <div className="bg-amber-100 shadow-md overflow-hidden">
+            <motion.img
+              variants={scaleFadeVariant(0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               src="/about/ontime.jpg"
               alt="On-Time"
               className="h-[220px] w-full object-cover"
@@ -192,9 +210,10 @@ const WhyChooseUs = () => {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                variants={fadeeIn("up", i * 0.3)}
+                whileInView="show"
+                initial="hidden"
+                viewport={{ once: false, amount: 0.2 }}
               >
                 <h3
                   className="text-4xl font-bold"

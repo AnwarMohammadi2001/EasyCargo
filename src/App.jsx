@@ -8,6 +8,8 @@ import TrackingSection from "./components/TrackingSection";
 import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Gallary from "./pages/Gallary";
 
 const App = () => {
   return (
@@ -18,8 +20,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/quote" element={<TrackingSection />} />
-          <Route path="/gallery" element={<Testimonials />} />
-          <Route path="/contact" element={<ContactSection />} />
+          <Route path="/gallery" element={<Gallary />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>
