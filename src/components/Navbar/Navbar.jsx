@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaSun, FaMoon, FaGlobe, FaSearch } from "react-icons/fa";
+import { FaSun, FaMoon, FaGlobe, FaSearch, FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../redux/darkModeSlice";
 import { toggleLanguage } from "../../redux/languageSlice";
@@ -96,7 +96,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
           </div>
 
           {/* Dark Mode Toggle */}
-          {darkMode ? (
+          {/* {darkMode ? (
             <FaSun
               className={`w-6 h-6 cursor-pointer ${iconClass}`}
               onClick={() => dispatch(toggleDarkMode())}
@@ -106,10 +106,14 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
               className={`w-6 h-6 cursor-pointer ${iconClass}`}
               onClick={() => dispatch(toggleDarkMode())}
             />
-          )}
+          )} */}
 
           {/* Language Toggle */}
           <FaGlobe
+            className={`w-6 h-6 cursor-pointer ${iconClass}`}
+            onClick={() => dispatch(toggleLanguage())}
+          />
+          <FaUser
             className={`w-6 h-6 cursor-pointer ${iconClass}`}
             onClick={() => dispatch(toggleLanguage())}
           />
