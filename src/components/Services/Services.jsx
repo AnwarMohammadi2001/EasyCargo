@@ -74,7 +74,7 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="py-24 bg-amber-50 dark:bg-gray-900 px-4 sm:px-6 lg:px-16">
+    <div className="py-24 bg-amber-50 dark:bg-zinc-900 px-4 sm:px-6 lg:px-16">
       <motion.div
         variants={contentContainer}
         initial="hidden"

@@ -96,7 +96,7 @@ const ContactSection = () => {
           variants={contentItem}
           className="bg-white max-w-[80%] mt-5 mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-full ">
             {" "}
             <motion.div
               ref={ref}
@@ -109,7 +109,7 @@ const ContactSection = () => {
                 src="slider/ab1.webp"
                 alt=""
                 effect="blur"
-                className="h-[250px] md:h-full w-full"
+                className="h-[250px] md:h-[500px] w-full"
               />
             </motion.div>
             <div className="p-4 md:p-8">
