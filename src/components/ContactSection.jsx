@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "../utils/Button"; // ✅ Import the button component
 import { motion, useInView } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { useRef } from "react";
 import {
   fadeIn,
@@ -103,7 +105,12 @@ const ContactSection = () => {
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="h-full w-full"
             >
-              <img src="slider/ab1.webp" alt="" className="h-[250px] md:h-full w-full" />
+              <LazyLoadImage
+                src="slider/ab1.webp"
+                alt=""
+                effect="blur"
+                className="h-[250px] md:h-full w-full"
+              />
             </motion.div>
             <div className="p-4 md:p-8">
               <form className="space-y-6">

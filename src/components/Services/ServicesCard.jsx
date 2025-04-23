@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeeIn } from "../../utils/framermotion/variants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ServicesCard = ({ service, index }) => {
   return (
@@ -12,11 +14,12 @@ const ServicesCard = ({ service, index }) => {
       className="bg-white dark:bg-gray-800 p-6 group shadow-md overflow-hidden rounded-2xl h-[500px] border border-gray-100 dark:border-gray-700 cursor-pointer flex flex-col justify-between"
     >
       <div>
-        <div className="h-[200px] w-full rounded-lg overflow-hidden">
-          <img
+        <div className="h-[200px] w-full rounded-lg overflow-hidden ">
+          <LazyLoadImage
             src={service.image}
             alt="services image"
-            className="h-full w-full object-cover group-hover:scale-110 transition-all duration-300"
+            effect="blur"
+            className="h-[200px] w-full object-cover group-hover:scale-110 transition-all duration-500"
           />
         </div>
 

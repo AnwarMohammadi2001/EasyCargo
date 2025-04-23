@@ -81,16 +81,19 @@ const About = () => {
           <img
             src="https://images.unsplash.com/photo-1505839673365-e3971f8d9184"
             alt="Cargo Ship at Sea"
+            loading="lazy"
             className="w-full h-52 object-cover "
           />
           <img
             src="https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg"
             alt="Logistics Warehouse"
+            loading="lazy"
             className="w-full h-52 object-cover "
           />
           <img
             src="https://images.unsplash.com/photo-1505839673365-e3971f8d9184"
             alt="Container Yard"
+            loading="lazy"
             className="w-full h-52 object-cover "
           />
         </div>

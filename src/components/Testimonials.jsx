@@ -144,6 +144,7 @@ const Testimonials = () => {
                 <img
                   src={customer.image}
                   alt={customer.name}
+                  loading="lazy"
                   className="w-[120px] rounded-full h-[120px] mt-5"
                 />
                 <h3 className="text-lg font-bold dark:text-gray-100">

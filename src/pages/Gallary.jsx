@@ -97,9 +97,9 @@ const Gallary = () => {
                   viewport={{ once: false, amount: 0.2 }}
                   key={index}
                   src={src}
+                  loading="lazy"
                   alt={`Cargo ${index + 1}`}
                   className="rounded-lg shadow-md w-full object-cover"
-                  loading="lazy"
                 />
               ))}
             </Masonry>
@@ -129,6 +129,7 @@ const Gallary = () => {
                 src={video}
                 controls
                 onPlay={() => handlePlay(index)}
+                preload="metadata" // or "none"
                 className="w-full md:w-80 h-56 object-cover rounded-lg shadow-md"
               />
             ))}

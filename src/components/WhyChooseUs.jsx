@@ -74,6 +74,7 @@ const WhyChooseUs = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
+            loading="lazy"
             src="/about/new.jpg"
             alt="Support"
             className="h-full w-full object-cover"
@@ -95,8 +96,9 @@ const WhyChooseUs = () => {
               loop
               muted
               playsInline
+              preload="metadata" // or "none"
               className="h-full w-full object-cover order-1 md:order-none"
-            ></motion.video>
+            />
 
             {!isPlaying && (
               <div className="absolute inset-0 bg-black/80 bg-opacity-50 flex items-center justify-center z-10">
@@ -140,6 +142,7 @@ const WhyChooseUs = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
+              loading="lazy"
               src="/about/price.jpg"
               alt="Rates"
               className="h-[220px] w-full object-cover"
@@ -169,6 +172,7 @@ const WhyChooseUs = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               src="/about/ontime.jpg"
+              loading="lazy"
               alt="On-Time"
               className="h-[220px] w-full object-cover"
             />
