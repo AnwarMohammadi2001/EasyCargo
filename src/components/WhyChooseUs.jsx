@@ -28,7 +28,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="dark:bg-gray-900">
+    <section className="bg-white dark:bg-zinc-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 py-24 ">
         {/* Section Header */}
         <div className="text-center">
@@ -51,11 +51,11 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Feature 1 */}
-        <div className="grid md:grid-cols-2 items-center mt-10 bg-amber-100 overflow-hidden shadow-md">
+        <div className="grid md:grid-cols-2 items-center mt-10 bg-amber-100 dark:bg-zinc-800 transition-colors duration-500 overflow-hidden shadow-md">
           <div className="p-10">
             <div className="flex items-center gap-4 mb-4">
               <FaHeadset className="text-4xl text-[#02DB81]" />
-              <h2 className="font-bold text-2xl text-gray-800">
+              <h2 className="font-bold text-2xl text-gray-800 dark:text-primary transition-colors duration-500">
                 24/7 Customer Support
               </h2>
             </div>
@@ -82,7 +82,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Feature 2 */}
-        <motion.div className="grid md:grid-cols-2 mt-5 items-center bg-amber-100 overflow-hidden shadow-md relative">
+        <motion.div className="grid md:grid-cols-2 mt-5 items-center bg-amber-100 dark:bg-zinc-800 transition-colors duration-500 overflow-hidden shadow-md relative">
           {/* Video Section */}
           <div className="relative overflow-hidden">
             <motion.video
@@ -118,11 +118,11 @@ const WhyChooseUs = () => {
           <div className="p-10">
             <div className="flex items-center gap-4 mb-4">
               <FaMapMarkedAlt className="text-4xl text-[#02DB81]" />
-              <h2 className="font-bold text-2xl text-gray-800">
+              <h2 className="font-bold text-2xl text-gray-800 dark:text-primary transition-colors duration-500">
                 Live GPS Tracking
               </h2>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 text-justify text-base">
+            <p className="text-gray-700 dark:text-gray-300 text-justify text-base transition-colors duration-500">
               Stay in control of your shipments with our advanced live GPS
               tracking system. We provide real-time visibility into your cargo’s
               location, movement, and delivery status across every stage of the
@@ -136,7 +136,7 @@ const WhyChooseUs = () => {
         {/* Feature 3 and 4 */}
         <div className="grid md:grid-cols-2 gap-8 mt-10">
           {/* Affordable Rates */}
-          <div className="bg-amber-100 shadow-md overflow-hidden">
+          <div className="bg-amber-100 dark:bg-zinc-800 transition-colors duration-500 shadow-md overflow-hidden">
             <motion.img
               variants={scaleFadeVariant(0.2)}
               initial="hidden"
@@ -150,7 +150,7 @@ const WhyChooseUs = () => {
             <div className="p-6">
               <div className="flex items-center gap-4 mb-4">
                 <FaMoneyBillWave className="text-4xl text-[#02DB81]" />
-                <h2 className="font-bold text-2xl text-gray-800">
+                <h2 className="font-bold text-2xl text-gray-800 dark:text-primary transition-colors duration-500">
                   Affordable Rates
                 </h2>
               </div>
@@ -165,7 +165,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* On-Time Delivery */}
-          <div className="bg-amber-100 shadow-md overflow-hidden">
+          <div className="bg-amber-100 dark:bg-zinc-800 transition-colors duration-500  shadow-md overflow-hidden">
             <motion.img
               variants={scaleFadeVariant(0.2)}
               initial="hidden"
@@ -179,7 +179,7 @@ const WhyChooseUs = () => {
             <div className="p-6">
               <div className="flex items-center gap-4 mb-4">
                 <FaClock className="text-4xl text-[#02DB81]" />
-                <h2 className="font-bold text-2xl text-gray-800">
+                <h2 className="font-bold text-2xl text-gray-800 dark:text-primary transition-colors duration-500">
                   On-Time Delivery
                 </h2>
               </div>
@@ -196,7 +196,7 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Statistics Section */}
-        <div className="bg-gray-200 py-14 rounded-2xl mt-10 shadow-inner">
+        <div className="bg-gray-200 dark:bg-zinc-700 transition-colors duration-500 py-14 rounded-2xl mt-10 shadow-inner">
           <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {[
               {
@@ -225,7 +225,7 @@ const WhyChooseUs = () => {
                 >
                   {item.value}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-500 mt-2 text-sm">
                   {item.label}
                 </p>
               </motion.div>

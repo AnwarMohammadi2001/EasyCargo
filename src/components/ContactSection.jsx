@@ -17,7 +17,7 @@ const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <section className="bg-gray-100 min-h-screen pt-10">
+    <section className="bg-gray-100  dark:bg-zinc-900 transition-colors duration-500 min-h-screen pt-10">
       {/* Contact Information */}
       <motion.div
         variants={contentContainer}
@@ -50,7 +50,7 @@ const ContactSection = () => {
         <motion.div
           variants={contentItem}
           className="max-w-[80%] mx-auto flex flex-col md:flex-row justify-around p-4 bg-white
-         space-y-4 md:space-y-0 md:space-x-12  md:h-[100px] text-gray-800 dark:text-gray-200"
+         space-y-4 md:space-y-0 md:space-x-12  md:h-[100px] text-gray-800 dark:text-gray-200 dark:bg-zinc-700 transition-colors duration-500"
         >
           <div className="flex items-center gap-x-4">
             <FaLocationDot className="text-4xl text-[#F4A91A]" />
@@ -94,7 +94,7 @@ const ContactSection = () => {
         {/* Request a Quote Form */}
         <motion.div
           variants={contentItem}
-          className="bg-white max-w-[80%] mt-5 mx-auto"
+          className="bg-white dark:bg-zinc-900 transition-colors duration-500 max-w-[80%] mt-5 mx-auto"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 h-full ">
             {" "}
@@ -125,7 +125,7 @@ const ContactSection = () => {
                       id="name"
                       className="border-2 w-full text-gray-300 px-3 focus:text-primary text-lg py-1.5 focus:outline-none bg-transparent rounded-md focus:border-primary peer"
                     />
-                    <span className="absolute left-3 top-3 px-2 text-md uppercase text-gray-600 peer-focus:text-primary pointer-events-none peer-focus:text-sm peer-focus:-translate-y-4 duration-200 bg-white dark:bg-black-100 peer-valid:text-sm peer-valid:-translate-y-5 mr-4">
+                    <span className="absolute left-3 top-3 px-2 text-md uppercase text-gray-600 dark:text-gray-300 peer-focus:text-primary pointer-events-none peer-focus:text-sm peer-focus:-translate-y-4 duration-200 bg-white dark:bg-zinc-900 peer-valid:text-sm peer-valid:-translate-y-5 mr-4">
                       Your Name
                     </span>
                   </div>
@@ -136,7 +136,7 @@ const ContactSection = () => {
                       id="email"
                       className="border-2 w-full text-gray-500 px-3  focus:text-primary text-lg py-1.5 focus:outline-none bg-transparent rounded-md focus:border-primary peer"
                     />
-                    <span className="absolute left-3 top-3 px-2 text-md uppercase text-gray-600 peer-focus:text-primary pointer-events-none peer-focus:text-sm peer-focus:-translate-y-4 duration-200 bg-white dark:bg-black-100 peer-valid:text-sm peer-valid:-translate-y-5 mr-4">
+                    <span className="absolute left-3 top-3 px-2 text-md uppercase text-gray-600 dark:text-gray-300 transition-colors  peer-focus:text-primary pointer-events-none peer-focus:text-sm peer-focus:-translate-y-4 duration-200 bg-white dark:bg-zinc-900 peer-valid:text-sm peer-valid:-translate-y-5 mr-4">
                       Your Email
                     </span>
                   </div>
@@ -144,7 +144,7 @@ const ContactSection = () => {
                 <div className="flex flex-col  gap-2 items-start">
                   <label
                     htmlFor="cargo"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
                     Cargo Type
                   </label>
@@ -162,7 +162,7 @@ const ContactSection = () => {
                 <div className="flex flex-col  gap-2 items-start">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
                     Message
                   </label>

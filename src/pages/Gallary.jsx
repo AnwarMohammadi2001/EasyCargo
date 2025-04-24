@@ -75,7 +75,7 @@ const Gallary = () => {
     <section className="">
       <GallaryHeader />
 
-      <div className="max-w-7xl mx-auto bg-white py-20 text-gray-800 px-6">
+      <div className="max-w-7xl mx-auto bg-white py-20 text-gray-800 dark:bg-zinc-900 transition-colors duration-500 px-6">
         {/* Image Gallery */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-6 text-primary text-center">
@@ -163,17 +163,17 @@ const Gallary = () => {
                 initial="hidden"
                 viewport={{ once: false, amount: 0.2 }}
                 key={index}
-                className="bg-gray-100 px-4 py-6  mb-4 shadow-sm"
+                className="bg-gray-200 rounded-md dark:bg-zinc-700 transition-colors duration-500 px-4 py-6  mb-4 shadow-sm"
               >
                 <div className="flex justify-between items-center">
                   <div>
-                    <h5 className="font-medium">Order ID: {order.id}</h5>
-                    <p className="text-base text-gray-500">
+                    <h5 className="font-medium dark:text-gray-300 transition-colors duration-500 ">Order ID: {order.id}</h5>
+                    <p className="text-base text-gray-500 dark:text-gray-300 transition-colors duration-500 ">
                       Destination: {order.destination}
                     </p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <p className="text-base text-gray-600">{order.date}</p>
+                  <div className="flex items-center gap-4 dark:text-gray-300 transition-colors duration-500 ">
+                    <p className="text-base text-gray-600 dark:text-gray-300 transition-colors duration-500 ">{order.date}</p>
                     <button
                       onClick={() => toggleDescription(index)}
                       className="text-2xl font-bold text-primary cursor-pointer hover:text-blue-700"
@@ -195,7 +195,7 @@ const Gallary = () => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-base text-gray-700">{order.description}</p>
+                  <p className="text-base text-gray-700 dark:text-gray-300 transition-colors duration-500 ">{order.description}</p>
                 </div>
               </motion.div>
             ))}

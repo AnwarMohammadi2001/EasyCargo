@@ -96,7 +96,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
           </div>
 
           {/* Dark Mode Toggle */}
-          {/* {darkMode ? (
+          {darkMode ? (
             <FaSun
               className={`w-6 h-6 cursor-pointer ${iconClass}`}
               onClick={() => dispatch(toggleDarkMode())}
@@ -106,7 +106,7 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
               className={`w-6 h-6 cursor-pointer ${iconClass}`}
               onClick={() => dispatch(toggleDarkMode())}
             />
-          )} */}
+          )}
 
           {/* Language Toggle */}
           <FaGlobe

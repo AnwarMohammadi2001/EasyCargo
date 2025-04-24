@@ -5,9 +5,8 @@ import { motion } from "framer-motion";
 
 const WhoWeAre = () => {
   return (
-    <div className="relative overflow-hidden  p-5">
+    <div className="relative bg-white dark:bg-zinc-900 transition-colors duration-500 overflow-hidden  p-5">
       {/* Background Pattern */}
-    
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center  justify-center min-h-[70vh]  gap-8 px-4">
         {/* Text Section */}
@@ -22,10 +21,10 @@ const WhoWeAre = () => {
             <img src="/title-icon-1.png" alt="" />
             <h2 className="text-4xl font-bold text-primary">Who We Are ?</h2>
           </div>
-          <h3 className="text-xl font-semibold text-gray-700">
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 transition-colors duration-500">
             The carrier of your goods around the world
           </h3>
-          <p className="text-gray-600 text-[14px] text-justify">
+          <p className="text-gray-600 text-[14px] text-justify dark:text-gray-300 transition-colors duration-500">
             We have your commercial cargo needs covered. At Kabul Barko, we are
             committed to ensuring that we respect your business as it were our
             own. Let us help you succeed by making your supply chain and
@@ -35,7 +34,7 @@ const WhoWeAre = () => {
             travelling to, our goal is to provide complete customer satisfaction
             through consistent quality service.
           </p>
-          <Button>Read More</Button>
+          <Button className="mt-3">Read More</Button>
         </motion.div>
 
         {/* Image Section */}

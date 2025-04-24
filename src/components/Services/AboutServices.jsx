@@ -35,13 +35,13 @@ const servicesRight = [
 const AboutServices = () => {
   const Navigate = useNavigate();
   return (
-    <section className="py-20 bg-white text-gray-800">
+    <section className="py-20 bg-white text-gray-800 dark:bg-zinc-900 dark:text-white transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Header */}
         <h2 className="text-3xl font-bold flex justify-center items-center text-primary gap-2">
           Our Service
         </h2>
-        <p className="text-gray-500 max-w-2xl mx-auto text-base mt-4">
+        <p className="text-gray-500 dark:text-gray-300 transition-colors duration-500 max-w-2xl mx-auto text-base mt-4">
           With reasonable transit times and services in almost all active ports
           in the world, we are there where you want us to be and will help you
           get your freight across from its origin to its destination.
@@ -61,7 +61,7 @@ const AboutServices = () => {
                   <h4 className="font-bold text-lg text-primary">
                     {service.title}
                   </h4>
-                  <p className=" text-gray-500 text-base">
+                  <p className=" text-gray-500 text-base dark:text-gray-300 transition-colors duration-500">
                     {service.description}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ const AboutServices = () => {
                   <h4 className="font-bold text-lg text-primary">
                     {service.title}
                   </h4>
-                  <p className=" text-gray-500 text-base">
+                  <p className=" text-gray-500 text-base dark:text-gray-300 transition-colors duration-500">
                     {service.description}
                   </p>
                 </div>

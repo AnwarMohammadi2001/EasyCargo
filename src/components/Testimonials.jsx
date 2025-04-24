@@ -75,7 +75,7 @@ const Testimonials = () => {
 
   return (
     <div
-      className="max-w-[90%] lg:max-w-[60%] relative group py-14 mx-auto"
+      className="max-w-[90%] lg:max-w-[60%] bg-white dark:bg-zinc-900  transition-colors duration-500  relative group py-14 mx-auto"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -89,13 +89,13 @@ const Testimonials = () => {
           variants={contentItem}
           className="text-center flex justify-center space-y-3 mb-2"
         >
-          <motion.h1 className="text-3xl md:text-2xl  font-bold text-primary dark:text-white">
+          <motion.h1 className="text-3xl md:text-2xl  font-bold text-primary dark:text-white  transition-colors duration-500">
             TESTIMONIALS
           </motion.h1>
         </motion.div>
         <motion.h2
           variants={contentItem}
-          className="text-3xl md:text-4xl  text-center  font-bold text-black dark:text-white"
+          className="text-3xl md:text-4xl  text-center  font-bold text-black dark:text-white  transition-colors duration-500"
         >
           Top Reviews
         </motion.h2>

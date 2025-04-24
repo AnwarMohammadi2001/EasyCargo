@@ -19,14 +19,10 @@ const Facts = () => {
     }
   }, [inView]);
   return (
-    <div className="relative  overflow-hidden">
+    <div className="relative  bg-white dark:bg-zinc-900 transition-colors duration-500 overflow-hidden">
       {/* Background Pattern */}
-      <div
-        className="absolute inset-0 z-0 bg-[url('/pattern.svg')] bg-no-repeat bg-cover opacity-10"
-        aria-hidden="true"
-      ></div>
 
-      <div className="relative z-10 px-10 md:px-4 md:max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[70vh]  backdrop-blur-md gap-8 ">
+      <div className="relative z-10 px-10 md:px-4 md:max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[70vh]  backdrop-blur-md gap-8 transition-colors duration-500">
         {/* Text Section */}
         <motion.div
           variants={fadeIn("down", 0)}
@@ -39,10 +35,10 @@ const Facts = () => {
             <SiCodefactor size={40} className="text-primary" />
             <h2 className="text-xl font-bold text-primary">Some Facts</h2>
           </div>
-          <h3 className="text-4xl font-semibold text-gray-700">
+          <h3 className="text-4xl font-semibold text-gray-700 dark:text-gray-300 transition-colors duration-500">
             Why people Want Us?
           </h3>
-          <p className="text-gray-600 text-[14px] text-justify">
+          <p className="text-gray-600 text-[14px] text-justify dark:text-gray-300 transition-colors duration-500">
             Its representatives think of themselves as logistics and supply
             chain problem solvers. Manufacturers contact them with their
             shipping problem and they solve it. The service is extremely
@@ -53,7 +49,7 @@ const Facts = () => {
               <FaHeadphones size={40} className="" />
             </div>
             <div className="">
-              <p className="text-xl font-semibold text-gray-700">
+              <p className="text-xl font-semibold text-gray-700 dark:text-gray-300 transition-colors duration-500">
                 Call for any query!
               </p>
               <p className="text-2xl text-primary font-semibold ">0772387935</p>
