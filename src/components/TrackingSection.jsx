@@ -8,16 +8,22 @@ const TrackingSection = () => {
   const [trackingID, setTrackingID] = useState("");
 
   const handleTrack = () => {
-    if (!trackingID.trim()) {
-      alert("Please enter a valid Tracking ID.");
+    const trackingRegex = /^1Z[0-9A-Z]{16}$/i; // Must start with 1Z and 16 characters after
+
+    if (trackingRegex.test(trackingID.trim())) {
+      const upsUrl = `https://www.ups.com/track?loc=en_US&tracknum=${trackingID.trim()}`;
+      window.open(upsUrl, "_blank");
     } else {
-      console.log("Tracking ID:", trackingID);
+      alert(
+        "❌ Invalid Tracking Number! It must start with '1Z' and be 18 characters long."
+      );
     }
+    setTrackingID(""); // Clear the input after search
   };
 
   return (
     <div
-      className="relative w-full h-80 my-5 bg-cover bg-center flex p-10 md:p-0 flex-col md:flex-row items-center justify-around"
+      className="relative w-full h-80  bg-cover bg-center flex p-10 md:p-0 flex-col md:flex-row items-center justify-around"
       style={{
         backgroundImage: `url(${trackingBg})`,
       }}
@@ -52,6 +58,11 @@ const TrackingSection = () => {
           type="text"
           value={trackingID}
           onChange={(e) => setTrackingID(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleTrack();
+            }
+          }}
           placeholder="Enter Tracking ID"
           className="p-3 w-full bg-white text-black placeholder:text-black focus:outline-none"
         />

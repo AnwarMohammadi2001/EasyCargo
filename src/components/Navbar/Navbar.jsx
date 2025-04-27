@@ -20,14 +20,6 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
   const iconClass = darkMode ? "text-amber-500" : "text-amber-50";
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const [trackingId, setTrackingId] = useState("");
-
-  const handleSearch = () => {
-    if (trackingId.trim() !== "") {
-      alert(`Searching for: ${trackingId}`);
-      setTrackingId("");
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +29,23 @@ const Navbar = ({ isNavOpen, toggleNav }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const [trackingId, setTrackingId] = useState("");
+
+  const handleSearch = () => {
+    const trackingRegex = /^1Z[0-9A-Z]{16}$/i; // Start with 1Z and 16 alphanumeric characters
+
+    if (trackingId.trim() === "") {
+      alert("❌ Please enter a tracking number.");
+    } else if (!trackingRegex.test(trackingId.trim())) {
+      alert(
+        "❌ Invalid Tracking Number! It must start with '1Z' and be 18 characters long."
+      );
+    } else {
+      const upsUrl = `https://www.ups.com/track?loc=en_US&tracknum=${trackingId.trim()}`;
+      window.open(upsUrl, "_blank");
+      setTrackingId(""); // Clear after successful search
+    }
+  };
 
   return (
     <nav

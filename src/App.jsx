@@ -10,6 +10,7 @@ import ContactSection from "./components/ContactSection";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Gallary from "./pages/Gallary";
+import Quote from "./pages/Quote";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/quote" element={<TrackingSection />} />
+          <Route path="/quote" element={<Quote />} />
           <Route path="/gallery" element={<Gallary />} />
           <Route path="/contact" element={<Contact />} />
         </Route>

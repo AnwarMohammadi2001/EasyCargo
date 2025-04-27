@@ -2,8 +2,10 @@ import React from "react";
 import Button from "../../utils/Button";
 import { fadeIn } from "../../utils/framermotion/variants";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const WhoWeAre = () => {
+  const Navigate = useNavigate();
   return (
     <div className="relative bg-white dark:bg-zinc-900 transition-colors duration-500 overflow-hidden  p-5">
       {/* Background Pattern */}
@@ -34,7 +36,9 @@ const WhoWeAre = () => {
             travelling to, our goal is to provide complete customer satisfaction
             through consistent quality service.
           </p>
-          <Button className="mt-3">Read More</Button>
+          <Button onClick={() => Navigate("/about")} className="mt-3">
+            Read More
+          </Button>
         </motion.div>
 
         {/* Image Section */}

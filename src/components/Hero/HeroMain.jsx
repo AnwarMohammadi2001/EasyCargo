@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const HeroMain = () => {
   const [prevEl, setPrevEl] = useState(null);
@@ -87,12 +88,18 @@ const HeroMain = () => {
                   variants={contentItem}
                   className="flex flex-col md:flex-row gap-5 items-center "
                 >
-                  <button className="bg-primary hover:bg-blue-600 text-lg font-bold cursor-pointer text-white px-5 py-4 rounded-md transition duration-300 w-[220px]">
+                  <Link
+                    to="/quote"
+                    className="bg-primary hover:bg-blue-600 text-lg font-bold text-center cursor-pointer text-white px-5 py-4 rounded-md transition duration-300 w-[220px]"
+                  >
                     Track Your Cargo
-                  </button>
-                  <button className="bg-white text-primary cursor-pointer text-lg font-bold hover:bg-gray-100 px-5 py-4 rounded-md transition duration-300 w-[220px]">
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="bg-white text-primary cursor-pointer text-center text-lg font-bold hover:bg-gray-100 px-5 py-4 rounded-md transition duration-300 w-[220px]"
+                  >
                     Get a Quote
-                  </button>
+                  </Link>
                 </motion.div>
               </motion.div>
             </motion.div>
